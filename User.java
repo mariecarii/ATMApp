@@ -4,8 +4,8 @@ import java.util.Scanner;
 public class User {
 
     //declare variables
-    String fullName;
-    String userID = "";
+    private String fullName;
+    private String userID = "";
 
     //constructor for name
     User() {
@@ -20,6 +20,10 @@ public class User {
         this.userID = createUserID();
 
         System.out.println("Hello "+ fullName.toUpperCase() + ".\nYour user ID is: " + userID);
+
+        System.out.println("**********************");
+
+        new Transactions();
 
     }
 
@@ -36,5 +40,6 @@ public class User {
         userID = fullName.substring(0,2).toUpperCase() + String.valueOf(id);
         return userID;
     }
+
 
 }
