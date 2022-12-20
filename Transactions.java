@@ -8,7 +8,7 @@ public class Transactions {
 
 //    constructors
     Transactions() {
-        System.out.println("What would you like to do?\n1. Deposit\n2. Withdraw\n3.Last Transaction ");
+        System.out.println("What would you like to do?\n1. Deposit\n2. Withdraw\n3. Last Transaction ");
         Scanner scan = new Scanner(System.in);
         int userInput = scan.nextInt();
 
@@ -35,6 +35,8 @@ public class Transactions {
         currentBalance += depositAmount;
 
         System.out.println("Your current balance is: $" + currentBalance);
+        anythingElse();
+
     }
 
     public void Withdraw() {
@@ -42,10 +44,11 @@ public class Transactions {
         Scanner scan = new Scanner(System.in);
         int withdrawAmount = scan.nextInt();
 
-        lastTransaction += withdrawAmount;
-        currentBalance += withdrawAmount;
+        lastTransaction -= withdrawAmount;
+        currentBalance -= withdrawAmount;
 
         System.out.println("Your current balance is: $" + currentBalance);
+        anythingElse();
 
     }
 
@@ -53,7 +56,6 @@ public class Transactions {
         if (lastTransaction > 0) {
             System.out.println("You deposited: $" + lastTransaction);
             System.out.println("Your current balance is: $" + currentBalance);
-
         }
         else if (lastTransaction > 0) {
             System.out.println("You withdrew: $" + lastTransaction);
@@ -64,6 +66,25 @@ public class Transactions {
             System.out.println("No previous transactions.");
             System.out.println("Your current balance is: $" + currentBalance);
 
+        }
+        else {
+            System.out.println("ERROR");
+        }
+
+        anythingElse();
+
+    }
+
+    public void anythingElse() {
+        System.out.println("Would you like to do anything else? 1 for Yes / 2 for no ");
+        Scanner scan = new Scanner(System.in);
+        int userAnswer = scan.nextInt();
+
+        if (userAnswer == 1) {
+           new Transactions();
+        }
+        else if (userAnswer == 2) {
+            System.out.println("Have a good day. Goodbye");
         }
         else {
             System.out.println("ERROR");
